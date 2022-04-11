@@ -9,11 +9,11 @@ const Header: React.FC = () => {
 
   let left = (
     <div className="left">
-      <Link href="/">
+      {/* <Link href="/">
         <a className="bold" data-active={isActive("/")}>
           Feed
         </a>
-      </Link>
+      </Link> */}
       <style jsx>{`
         .bold {
           font-weight: bold;

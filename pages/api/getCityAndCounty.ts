@@ -28,12 +28,15 @@ export default async (req, res) => {
     try {
         let { zipCode } = req.query;
 
+        console.log('req.query, req.body:', req.query, req.body)
+
         if (!zipCode) {
             zipCode = req.body;
         }
 
         if (!zipCode) {
-            return res.status(400).json({code: '400', message: 'Missing zip code on request'});
+            let error = {code: '404', message: 'Zip Code not found'}
+            return res.status(400).json({ result: error });
         }
 
         const result = await getRow(zipCode);
@@ -41,7 +44,8 @@ export default async (req, res) => {
         console.log('GET_CITY_AND_COUNTY:', result);
 
         if (!result.city) {
-            return res.status(404).json({code: '404', message: 'Zip Code not found'});
+            let error = {code: '404', message: 'Zip Code not found'}
+            return res.status(404).json({ result: error });
         }
 
         return res.status(200).json({ result });

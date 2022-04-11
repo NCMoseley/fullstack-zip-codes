@@ -1,39 +1,64 @@
-import React from "react"
-import { GetStaticProps } from "next"
+import React, {useState} from "react"
 import Layout from "../components/Layout"
-import Post, { PostProps } from "../components/Post"
-
-export const getStaticProps: GetStaticProps = async () => {
-  const feed = [
-    {
-      id: "1",
-      title: "Prisma is the perfect ORM for Next.js",
-      content: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
-      published: false,
-      author: {
-        name: "Nikolas Burk",
-        email: "burk@prisma.io",
-      },
-    },
-  ]
-  return { props: { feed } }
-}
 
 type Props = {
-  feed: PostProps[]
+  
 }
 
 const Blog: React.FC<Props> = (props) => {
+  const [zip, setZip] = useState<number>(20601);
+  const [county, setCounty] = useState('');
+  const [city, setCity] = useState('');
+  const [error, setError] = useState('');
+
+  console.log('zip:', zip)
+
+  const getProducts = async () => {
+    if (!zip) {
+      return; 
+    }
+
+    const url = `/api/getCityAndCounty`;
+    const res = await fetch(url, {
+        method: 'POST',
+        body: zip
+    });
+
+    const data = await res.json();
+    console.log('data:', data);
+    if (data.result.code) {
+      setError(data.result.message);
+      return;
+    }
+
+    setCounty(data.result.county);
+    setCity(data.result.city);
+  
+    return data.result;
+  }
+
+  const handleZipChange = async (e) => {
+    const zip = e.target.value; 
+    setZip(zip);
+  }
+
   return (
     <Layout>
       <div className="page">
-        <h1>Public Feed</h1>
+        <h1>Enter a Zip!</h1>
         <main>
-          {props.feed.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
+          <input value={zip} onChange={(e) => handleZipChange(e)} />
+          <button onClick={() => getProducts()}>
+            See City and County
+          </button>
+          {error ? 
+            <h3 style={{color:"red"}}>{error}</h3>
+            : 
+            <>
+              <h1>{city}</h1>
+              <h2>{county}</h2>
+            </>
+          }
         </main>
       </div>
       <style jsx>{`
