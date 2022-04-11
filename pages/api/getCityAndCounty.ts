@@ -25,6 +25,8 @@ export default async (req, res) => {
 
         const result = await getCityAndCounty(zipCode);
 
+        console.log('GET_CITY_AND_COUNTY:', result)
+
         return res.status(200).json({ result });
     } catch (error) {
         console.error('error:', error);
