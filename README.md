@@ -30,3 +30,13 @@ https://dev.to/maciekgrzybek/setup-next-js-with-typescript-jest-and-react-testin
 https://www.prisma.io/docs/guides/testing/unit-testing#example-unit-tests
 
 Note: `"strictNullChecks": true` was necessary as per above docs
+
+## Making A request
+
+You can make a request to the api by using the following command:
+
+```
+http://localhost:3000/api/getCityAndCounty?zipCode=20601
+```
+
+Where 20601 is a Maryland zip code.
