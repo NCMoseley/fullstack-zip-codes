@@ -1,13 +1,22 @@
 import prisma from '../../prisma/client';
 
-export async function getCityAndCounty(zipCode: number) {
+export async function getRow(zipCode: number) {
     const result = await prisma.entries.findUnique({
         where: {
             zip_code: zipCode
         }
     });
 
-    return result;
+    let readyResult = {} as any;
+
+    if (result) {
+        readyResult ={
+            city: result.city,
+            county: result.county,
+        }
+    }
+
+    return readyResult;
 }
 
 export default async (req, res) => {
@@ -23,7 +32,7 @@ export default async (req, res) => {
             throw new Error('Missing zip code');
         }
 
-        const result = await getCityAndCounty(zipCode);
+        const result = await getRow(zipCode);
 
         console.log('GET_CITY_AND_COUNTY:', result)
 
