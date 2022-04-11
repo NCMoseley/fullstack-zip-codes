@@ -9,7 +9,7 @@ Start time: 2:30pm PST Monday April 11th.
 
 1. I prepared the data ahead of time. I hope this was the correct solution. I did start writing a function to convert the csv in the api when seeding the db, but I decided it was a waste of time. 
 
-## Prisma
+## Prisma (Postgres)
 
 https://www.prisma.io/docs/guides/database/seed-database
 
@@ -22,3 +22,11 @@ Run GUI for db in browser
 ```
 npx prisma studio
 ```
+
+## Jest
+
+https://dev.to/maciekgrzybek/setup-next-js-with-typescript-jest-and-react-testing-library-28g5
+
+https://www.prisma.io/docs/guides/testing/unit-testing#example-unit-tests
+
+Note: `"strictNullChecks": true` was necessary as per above docs
