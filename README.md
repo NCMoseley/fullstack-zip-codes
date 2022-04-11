@@ -31,6 +31,10 @@ https://www.prisma.io/docs/guides/testing/unit-testing#example-unit-tests
 
 Note: `"strictNullChecks": true` was necessary as per above docs
 
+```
+Yarn Jest
+```
+
 ## Making A request
 
 You can make a request to the api by using the following command:
