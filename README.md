@@ -43,4 +43,6 @@ You can make a request to the api by using the following command:
 http://localhost:3000/api/getCityAndCounty?zipCode=20601
 ```
 
-Where 20601 is a Maryland zip code.
+where 20601 is a Maryland zip code.
+
+Alternatively, you can navigate to localhost:3000 and use the UI. 

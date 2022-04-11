@@ -11,8 +11,6 @@ const Blog: React.FC<Props> = (props) => {
   const [city, setCity] = useState('');
   const [error, setError] = useState('');
 
-  console.log('zip:', zip)
-
   const getProducts = async () => {
     if (!zip) {
       return; 
@@ -21,11 +19,10 @@ const Blog: React.FC<Props> = (props) => {
     const url = `/api/getCityAndCounty`;
     const res = await fetch(url, {
         method: 'POST',
-        body: zip
+        body: JSON.stringify(zip)
     });
 
     const data = await res.json();
-    console.log('data:', data);
     if (data.result.code) {
       setError(data.result.message);
       return;
@@ -33,8 +30,7 @@ const Blog: React.FC<Props> = (props) => {
 
     setCounty(data.result.county);
     setCity(data.result.city);
-  
-    return data.result;
+    setError('')
   }
 
   const handleZipChange = async (e) => {

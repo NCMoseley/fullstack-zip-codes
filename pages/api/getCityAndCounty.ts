@@ -28,14 +28,12 @@ export default async (req, res) => {
     try {
         let { zipCode } = req.query;
 
-        console.log('req.query, req.body:', req.query, req.body)
-
         if (!zipCode) {
-            zipCode = req.body;
+            zipCode = JSON.parse(req.body);
         }
 
         if (!zipCode) {
-            let error = {code: '404', message: 'Zip Code not found'}
+            let error = {code: '400', message: 'Missing zip code'};
             return res.status(400).json({ result: error });
         }
 
