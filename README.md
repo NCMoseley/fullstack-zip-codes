@@ -37,9 +37,12 @@ You can create a basic Heroku Postgres DB and copy the `URI` from the Heroku das
 `https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1`
 
 
+then finally: 
+```
+npm run dev
+```
 
-
-## Making A request
+## Making a request
 
 You can make a request to the api by using the following command:
 
@@ -73,8 +76,10 @@ npx prisma studio
 
 Note: `"strictNullChecks": true` was necessary as per above docs
 
+Run tests:
+
 ```
-Yarn Jest
+yarn jest
 ```
 
 ## Notes

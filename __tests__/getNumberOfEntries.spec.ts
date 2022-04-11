@@ -1,4 +1,4 @@
-import { getNumberOfEntries } from '../functions-without-context'
+import { getNumberOfEntries } from '../data/functions-without-context'
 import lookupTable from "../data/Zip_Code_Lookup_Table.json"
 
 const numOfItems = lookupTable.length
