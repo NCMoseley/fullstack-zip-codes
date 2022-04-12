@@ -2,9 +2,9 @@ import React from "react";
 
 const Header: React.FC = () => {
 
-  let left = (
+  const left = (
     <div className="left">
-        <a className="bold"  href="https://github.com/NCMoseley/fullstack-zip-codes" target="_blank">
+        <a className="bold"  href="https://github.com/NCMoseley/fullstack-zip-codes" target="_blank" rel="noreferrer">
           See my Git Hub
         </a>
       <style jsx>{`
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
     </div>
   );
 
-  let right = null;
+  const right = null;
 
   return (
     <nav>

@@ -24,7 +24,7 @@ export async function getRow(zipCode: number) {
     return readyResult;
 }
 
-export default async (req, res) => {
+const getCityAndCounty = async (req, res) => {
     try {
         let { zipCode } = req.query;
 
@@ -33,7 +33,7 @@ export default async (req, res) => {
         }
 
         if (!zipCode) {
-            let error = {code: '400', message: 'Missing zip code'};
+            const error = {code: '400', message: 'Missing zip code'};
             return res.status(400).json({ result: error });
         }
 
@@ -42,13 +42,15 @@ export default async (req, res) => {
         console.log('GET_CITY_AND_COUNTY:', result);
 
         if (!result.city) {
-            let error = {code: '404', message: 'Zip Code not found'}
+            const error = {code: '404', message: 'Zip Code not found'}
             return res.status(404).json({ result: error });
         }
 
         return res.status(200).json({ result });
     } catch (error) {
         console.error('error:', error);
-        return res.status(404).json(error);
+        return res.status(500).json(error);
     }
 };
+
+export default getCityAndCounty;

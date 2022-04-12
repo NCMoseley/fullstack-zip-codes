@@ -1,11 +1,7 @@
 import React, {useState} from "react"
 import Layout from "../components/Layout"
 
-type Props = {
-  
-}
-
-const Zips: React.FC<Props> = () => {
+const Zips: React.FC = () => {
   const [zip, setZip] = useState<number>(20601);
   const [county, setCounty] = useState('');
   const [city, setCity] = useState('');
