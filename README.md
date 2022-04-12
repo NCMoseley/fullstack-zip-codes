@@ -2,7 +2,8 @@
 
 With Zip Codes, you will always have the ability to find a zip, provided you live in Maryland! This project is intended to showcase some technologies and demonstrate fullstack engineering skills. 
 
-Start time: 2:30pm PST Monday April 11th. 
+Start time: 2:30pm PST Monday April 11th.
+End time: 5:36pm PST Monday April 11th. 
 
 
 ## Installation
@@ -82,12 +83,3 @@ Run tests:
 yarn jest
 ```
 
-## Notes
-
-1. I prepared the data ahead of time. I hope this was the correct solution. I did start writing a function to convert the csv in the api when seeding the db, but I decided it was a waste of time. 
-
-2. You can see I decided to use a full stack boilerplate, as I have been working with Prisma all winter, and I am quite familiar with it. I considered using GraphQl, but I didn't want to stress myself out too badly. If I had more time, I feel I wold have been able to provide that as a deliverable.
-
-3. None of the projects I have contributed on to date use docker containers. I've done some work with the dev ops at Simply Benefits and configured our deployment pipelines, which use docker, but I wasn't comfortable using a docker setup today. I look forward to becoming more comfortable with docker in the near future.
-
-4. You can see there was no investment in CSS or the design on client side, I am much more confident with the client, and would be willing to showcase those skills if parties are interested. I feel it was an aside to this project.
