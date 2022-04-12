@@ -5,7 +5,7 @@ type Props = {
   
 }
 
-const Blog: React.FC<Props> = (props) => {
+const Zips: React.FC<Props> = () => {
   const [zip, setZip] = useState<number>(20601);
   const [county, setCounty] = useState('');
   const [city, setCity] = useState('');
@@ -75,4 +75,4 @@ const Blog: React.FC<Props> = (props) => {
   )
 }
 
-export default Blog
+export default Zips
