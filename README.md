@@ -11,7 +11,7 @@ End time: 5:36pm PST Monday April 11th.
 Run:
 
 ```
-yarn install
+yarn
 ```
 
 Then configure Prisma so you can access the UI in the browser, and to seed your database.
